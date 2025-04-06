@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
       // gravar no log ja existente do python
       $logFile = './../install_windows/info.log';
-      $data = date('d:M:Y H-i-s') . ' Realizado chamada manual para ' .$url;
+      $data = date('d:M:Y H-i-s') . '- INFO - sucesso chamada manual para ' .$url;
       if(file_exists($logFile)){
         file_put_contents($logFile, $data .  PHP_EOL, FILE_APPEND);
       }
