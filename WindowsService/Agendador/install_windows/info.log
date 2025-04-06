@@ -1,80 +1,13 @@
-2025-04-06 18:03:32 - INFO - Arquivo config.json carregado com sucesso.
-2025-04-06 18:03:32 - INFO - 15:30 | netlify         |  ATIVO
-2025-04-06 18:03:32 - INFO - 11:51 | restful-vercel  |  ATIVO
-2025-04-06 18:03:32 - INFO - 18:01 | PHPdoIT         |  ATIVO
-2025-04-06 18:04:02 - INFO - Recarregando agendamentos...
-2025-04-06 18:04:02 - INFO - Arquivo config.json carregado com sucesso.
-2025-04-06 18:04:02 - INFO - 15:30 | netlify         |  ATIVO
-2025-04-06 18:04:02 - INFO - 11:51 | restful-vercel  |  ATIVO
-2025-04-06 18:04:02 - INFO - 18:04 | PHPdoIT         |  ATIVO
-2025-04-06 18:04:22 - INFO - Recarregando agendamentos...
-2025-04-06 18:04:22 - INFO - Arquivo config.json carregado com sucesso.
-2025-04-06 18:04:22 - INFO - 15:30 | netlify         |  ATIVO
-2025-04-06 18:04:22 - INFO - 11:51 | restful-vercel  |  ATIVO
-2025-04-06 18:04:22 - INFO - 18:05 | PHPdoIT         |  ATIVO
-2025-04-06 18:04:42 - INFO - Recarregando agendamentos...
-2025-04-06 18:04:42 - INFO - Arquivo config.json carregado com sucesso.
-2025-04-06 18:04:42 - INFO - 15:30 | netlify         |  ATIVO
-2025-04-06 18:04:42 - INFO - 11:51 | restful-vercel  |  ATIVO
-2025-04-06 18:04:42 - INFO - 18:05 | LocalPHP        |  ATIVO
-2025-04-06 18:05:00 - INFO - Sucesso na chamada de: 127.0.0.1/Dev/create.php...
-2025-04-06 18:05:00 - INFO - Sucesso 200 resposta de: LocalPHP
-2025-04-06 18:06:02 - INFO - Recarregando agendamentos...
-2025-04-06 18:06:02 - INFO - Arquivo config.json carregado com sucesso.
-2025-04-06 18:06:02 - INFO - 15:30 | netlify         |  ATIVO
-2025-04-06 18:06:02 - INFO - 01:51 | restful-vercel  |  ATIVO
-2025-04-06 18:06:02 - INFO - 18:05 | LocalPHP        |  ATIVO
-2025-04-06 18:06:17 - INFO - Recarregando agendamentos...
-2025-04-06 18:06:17 - INFO - Arquivo config.json carregado com sucesso.
-2025-04-06 18:06:17 - INFO - 15:30 | netlify         |  ATIVO
-2025-04-06 18:06:17 - INFO - 18:07 | restful-vercel  |  ATIVO
-2025-04-06 18:06:17 - INFO - 18:05 | LocalPHP        |  ATIVO
-2025-04-06 18:06:27 - INFO - Recarregando agendamentos...
-2025-04-06 18:06:27 - INFO - Arquivo config.json carregado com sucesso.
-2025-04-06 18:06:27 - INFO - 18:11 | netlify         |  ATIVO
-2025-04-06 18:06:27 - INFO - 18:07 | restful-vercel  |  ATIVO
-2025-04-06 18:06:27 - INFO - 18:05 | LocalPHP        |  ATIVO
-2025-04-06 18:07:01 - INFO - Sucesso na chamada de: api-restful-json.vercel.app/st...
-2025-04-06 18:07:01 - INFO - Sucesso 200 resposta de: restful-vercel
-2025-04-06 18:11:00 - INFO - Sucesso na chamada de: geraldox.netlify.app/src/db/st...
-2025-04-06 18:11:00 - INFO - Sucesso 200 resposta de: netlify
-2025-04-06 18:27:19 - INFO - Recarregando agendamentos...
-2025-04-06 18:27:19 - INFO - Arquivo config.json carregado com sucesso.
-2025-04-06 18:27:19 - INFO - 18:11 | netlify         |  ATIVO
-2025-04-06 18:27:19 - INFO - 18:07 | restful-vercel  |  ATIVO
-2025-04-06 18:27:19 - INFO - 18:05 | LocalPHP        |  ATIVO
-2025-04-06 18:27:19 - INFO - 18:29 | teste           |  ATIVO
-2025-04-06 18:29:01 - INFO - Sucesso na chamada de: uol.com.br
-2025-04-06 18:29:01 - INFO - Sucesso 200 resposta de: teste
-2025-04-06 18:31:15 - INFO - Recarregando agendamentos...
-2025-04-06 18:31:15 - INFO - Arquivo config.json carregado com sucesso.
-2025-04-06 18:31:15 - INFO - 18:11 | netlify         |  ATIVO
-2025-04-06 18:31:15 - INFO - 18:07 | restful-vercel  |  ATIVO
-2025-04-06 18:31:15 - INFO - 18:05 | LocalPHP        |  ATIVO
-2025-04-06 18:31:15 - INFO - 18:33 | teste           |  ATIVO
-2025-04-06 18:33:00 - INFO - Sucesso na chamada de: 127.0.0.1/Dev/create.php...
-2025-04-06 18:33:00 - INFO - Sucesso 200 resposta de: teste
-2025-04-06 18:40:35 - INFO - Recarregando agendamentos...
-2025-04-06 18:40:35 - INFO - Arquivo config.json carregado com sucesso.
-2025-04-06 18:40:35 - INFO - 18:11 | netlify         |  ATIVO
-2025-04-06 18:40:35 - INFO - 18:07 | restful-vercel  |  ATIVO
-2025-04-06 18:40:35 - INFO - 18:05 | LocalPHP        |  ATIVO
-2025-04-06 18:45:30 - INFO - Recarregando agendamentos...
-2025-04-06 18:45:30 - INFO - Arquivo config.json carregado com sucesso.
-2025-04-06 18:45:30 - INFO - 18:11 | netlify         |  ATIVO
-2025-04-06 18:45:30 - INFO - 18:07 | restful-vercel  |  ATIVO
-2025-04-06 18:45:30 - INFO - 18:48 | LocalPHP        |  ATIVO
-2025-04-06 18:48:00 - INFO - Sucesso na chamada de: 127.0.0.1/Dev/create.php...
-2025-04-06 18:48:00 - INFO - Sucesso 200 resposta de: LocalPHP
-Realizado chamada manual para http://127.0.0.1/Dev/create.php
-06:Apr:2025 23-57-32Realizado chamada manual para http://127.0.0.1/Dev/create.php
-06:Apr:2025 23-57-42Realizado chamada manual para http://127.0.0.1/Dev/create.php
-06:Apr:2025 23-58-36 INFO Realizado chamada manual para https://api-restful-json.vercel.app/status
-06:Apr:2025 23-58-36 Realizado chamada manual para https://api-restful-json.vercel.app/status
-06:Apr:2025 23-58-42 Realizado chamada manual para https://api-restful-json.vercel.app/status
-06:Apr:2025 23-58-56 Realizado chamada manual para http://127.0.0.1/Dev/create.php
-06:Apr:2025 23-58-59 Realizado chamada manual para https://api-restful-json.vercel.app/status
-06:Apr:2025 23-59-01 Realizado chamada manual para https://geraldox.netlify.app/src/db/status.json
-07:Apr:2025 00-03-31- INFO - Realizado chamada manual para http://127.0.0.1/Dev/create.php
-07:Apr:2025 00-10-37- INFO - sucesso chamada manual para https://api-restful-json.vercel.app/status
-07:Apr:2025 00-10-37- INFO - sucesso chamada manual para https://geraldox.netlify.app/src/db/status.json
+2025-04-06 19:14:35 - INFO - Arquivo config.json carregado com sucesso.
+2025-04-06 19:14:35 - INFO - 18:11 | netlify         |  ATIVO
+2025-04-06 19:14:35 - INFO - 18:07 | restful-vercel  |  ATIVO
+2025-04-06 19:14:35 - INFO - 18:48 | LocalPHP        |  ATIVO
+2025-04-06 19:14:45 - INFO - Recarregando agendamentos...
+2025-04-06 19:14:45 - INFO - Arquivo config.json carregado com sucesso.
+2025-04-06 19:14:45 - INFO - 19:15 | netlify         |  ATIVO
+2025-04-06 19:14:45 - INFO - 18:07 | restful-vercel  |  ATIVO
+2025-04-06 19:14:45 - INFO - 18:48 | LocalPHP        |  ATIVO
+06:Apr:2025 19-14-55- INFO - sucesso chamada manual para http://127.0.0.1/Dev/create.php
+2025-04-06 19:15:01 - INFO - Sucesso na chamada de: geraldox.netlify.app/src/db/st...
+2025-04-06 19:15:01 - INFO - Sucesso 200 resposta de: netlify
+06:Apr:2025 19-15-25- INFO - Sucesso chamada manual para https://geraldox.netlify.app/src/db/status.json
