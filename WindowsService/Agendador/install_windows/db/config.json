@@ -1,0 +1,22 @@
+{
+    "tasks": [
+        {
+            "description": "netlify",
+            "url": "https:\/\/geraldox.netlify.app\/src\/db\/status.json",
+            "status": true,
+            "hora": "18:11"
+        },
+        {
+            "description": "restful-vercel",
+            "url": "https:\/\/api-restful-json.vercel.app\/status",
+            "status": true,
+            "hora": "18:07"
+        },
+        {
+            "description": "LocalPHP",
+            "url": "http:\/\/127.0.0.1\/Dev\/create.php",
+            "hora": "18:05",
+            "status": true
+        }
+    ]
+}

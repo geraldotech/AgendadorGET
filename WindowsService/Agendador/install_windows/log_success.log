@@ -1,0 +1,8 @@
+2025-04-06 18:05:00 - INFO - Response from: 127.0.0.1/Dev/create.php...: Arquivo 'teste_20250406_230500.txt' criado com sucesso! 
+
+
+
+2025-04-06 18:07:01 - INFO - Response from: api-restful-json.vercel.app/st...: {
+  "ok": true,
+  "message": "success"
+}

@@ -1,0 +1,41 @@
+2025-04-02 22:29:09 - INFO - Script interrompido pelo usuário.
+2025-04-02 22:29:11 - INFO - Arquivo config.json carregado com sucesso.
+2025-04-02 22:29:11 - INFO - 15:30 | netlify         |  INATIVO
+2025-04-02 22:29:11 - INFO - 11:51 | restful-vercel  |  INATIVO
+2025-04-02 22:29:11 - INFO - 22:27 | php server      |  ATIVO
+2025-04-02 22:29:11 - INFO -  Tarefa desativada: netlify
+2025-04-02 22:29:11 - INFO -  Tarefa desativada: restful-vercel
+2025-04-02 22:29:21 - INFO - Recarregando agendamentos...
+2025-04-02 22:29:21 - INFO - Arquivo config.json carregado com sucesso.
+2025-04-02 22:29:21 - INFO - 15:30 | netlify         |  ATIVO
+2025-04-02 22:29:21 - INFO - 11:51 | restful-vercel  |  ATIVO
+2025-04-02 22:29:21 - INFO - 22:27 | php server      |  ATIVO
+2025-04-02 22:29:31 - INFO - Recarregando agendamentos...
+2025-04-02 22:29:31 - INFO - Arquivo config.json carregado com sucesso.
+2025-04-02 22:29:31 - INFO - 22:30 | netlify         |  ATIVO
+2025-04-02 22:29:31 - INFO - 22:51 | restful-vercel  |  ATIVO
+2025-04-02 22:29:31 - INFO - 22:27 | php server      |  ATIVO
+2025-04-02 22:29:36 - INFO - Recarregando agendamentos...
+2025-04-02 22:29:36 - INFO - Arquivo config.json carregado com sucesso.
+2025-04-02 22:29:36 - INFO - 22:30 | netlify         |  ATIVO
+2025-04-02 22:29:36 - INFO - 22:30 | restful-vercel  |  ATIVO
+2025-04-02 22:29:36 - INFO - 22:30 | php server      |  ATIVO
+2025-04-02 22:30:02 - INFO - Sucesso na chamada de: geraldox.netlify.app/src/db/st...
+2025-04-02 22:30:02 - INFO - Sucesso 200 resposta de: netlify
+2025-04-02 22:30:03 - INFO - Sucesso na chamada de: api-restful-json.vercel.app/st...
+2025-04-02 22:30:03 - INFO - Sucesso 200 resposta de: restful-vercel
+2025-04-02 22:30:03 - INFO - Sucesso na chamada de: 127.0.0.1:8080/PHP/General/Fil...
+2025-04-02 22:30:03 - INFO - Sucesso 200 resposta de: php server
+2025-04-02 22:31:42 - INFO - Script interrompido pelo usuário.
+2025-04-06 17:42:13 - INFO - Arquivo config.json carregado com sucesso.
+2025-04-06 17:42:13 - INFO - 22:30 | netlify         |  ATIVO
+2025-04-06 17:42:13 - INFO - 22:30 | restful-vercel  |  ATIVO
+2025-04-06 17:42:13 - INFO - 22:30 | php server      |  ATIVO
+2025-04-06 17:42:53 - INFO - Recarregando agendamentos...
+2025-04-06 17:42:53 - INFO - Arquivo config.json carregado com sucesso.
+2025-04-06 17:42:53 - INFO - 22:30 | netlify         |  ATIVO
+2025-04-06 17:42:53 - INFO - 22:30 | restful-vercel  |  ATIVO
+2025-04-06 17:42:53 - INFO - 17:43 | php server      |  ATIVO
+2025-04-06 17:43:00 - INFO - Sucesso na chamada de: 127.0.0.1:8080/PHP/General/Fil...
+2025-04-06 17:43:00 - INFO - Sucesso 200 resposta de: php server
+2025-04-06 17:45:10 - INFO - Script interrompido pelo usuário.

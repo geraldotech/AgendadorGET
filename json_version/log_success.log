@@ -1,0 +1,11 @@
+2025-04-02 22:30:02 - INFO - Response from: geraldox.netlify.app/src/db/st...: {
+  "status": "ok",
+  "server": "netlify"
+
+}
+2025-04-02 22:30:03 - INFO - Response from: api-restful-json.vercel.app/st...: {
+  "ok": true,
+  "message": "success"
+}
+2025-04-02 22:30:03 - INFO - Response from: 127.0.0.1:8080/PHP/General/Fil...: {"ok":true,"message":"Arquivo criado com sucesso"}
+2025-04-06 17:43:00 - INFO - Response from: 127.0.0.1:8080/PHP/General/Fil...: {"ok":true,"message":"Arquivo criado com sucesso"}

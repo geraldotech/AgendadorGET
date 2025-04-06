@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Agendador de Tarefas Pyhton 1.0</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.simplecss.org/simple.min.css" />
+    <style>
+      :root {
+        --accent: #007bff; /* Primary color */
+      }
+
+      body {
+        display: block;
+      }
+
+      input[type='text'] {
+        width: 100%;
+      }
+
+      main {
+        max-width: 1400px; /* Define um limite maior para a largura */
+        width: 95%; /* Permite que o main ocupe quase toda a tela */
+        padding: 30px;
+        margin: auto;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+      }
+      button {
+        cursor: pointer;
+        padding: 5px 10px;
+        margin: 2px;
+      }
+
+      label {
+        cursor: pointer;
+      }
+
+      footer {
+        margin-top: 200px;
+        text-align: center;
+        font-size: small;
+      }
+
+      dialog::backdrop {
+        background: rgb(0, 0, 0 / 0.8);
+      }
+      .dflex {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+      }
+
+      h3 {
+        margin-top: unset;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h2>Agendador de Tarefas</h2>
+      <!-- Botão para abrir o modal -->
+      <button
+        id="open_modal"
+        title="Adicionar novo">
+        Adicionar
+      </button>
+
+      <table id="taskTable">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Endpoint</th>
+            <th>Hora</th>
+            <th>Status</th>
+            <th>Ações</th>
+            <th>Executar</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <p>Os agendamentos são salvos automaticamente sempre que houver alterações.</p>
+
+      <details>
+        <summary>Sobre esse serviço</summary>
+        <p>
+          Ao cadastrar seu endpoint, nosso serviço realizará uma requisição GET para o endpoint informado, obtendo o retorno. Isso pode ser útil, por exemplo, em PHP, onde ao receber um GET, ele pode
+          executar scripts, acessar o banco de dados e retornar uma resposta.
+        </p>
+      </details>
+    </main>
+
+    <footer>
+      <p>by <a href="https://github.com/geraldotech">gmapdev</a> using Python, PHP, Javascript, HTML e CSS - copyright 2025</p>
+    </footer>
+
+    <!-- modal -->
+
+    <dialog id="dialogbox">
+      <div class="modal">
+        <div class="modal-content">
+          <h3>Nova tarefa</h3>
+          <p>Novas tarefas começam ativado.</p>
+          Nome:<input
+            type="text"
+            id="newDescription"
+            placeholder="Descrição da sua tarefa" />
+          Endpoint:<input
+            type="text"
+            id="newUrl"
+            placeholder="http://seuendpoint.com/v1/sincronizador.php" />
+          Horário:
+          <input
+            type="time"
+            id="newHora"
+            placeholder="hora" />
+
+          <div class="dflex">
+            <button onclick="addTask()">Adicionar</button>
+            <button id="dialog_close">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </dialog>
+    <script src="./assets/main.js"></script>
+  </body>
+</html>

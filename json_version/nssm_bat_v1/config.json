@@ -1,0 +1,16 @@
+{
+    "tasks": [
+        {
+            "url": "http://127.0.0.1:8080/PHP/General/Filesystem/CREATE/cretate_file_put_contents.php",
+            "hora": "09:00"
+        },
+        {
+            "url": "http://127.0.0.1:8080/PHP/General/Filesystem/CREATE/cretate_file_put_contents.php",
+            "hora": "14:26"
+        },
+        {            
+            "url": "https://api-restful-json.vercel.app/entregasuporte",
+            "hora": "14:45"
+        }
+    ]
+}

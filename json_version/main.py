@@ -1,0 +1,253 @@
+import schedule
+import time
+import requests
+import os
+import json
+import logging
+from pathlib import Path
+
+""" 
+VERSAO VERIFICA STATUS INDIVIDUALMENTE
+Ultimo ajuste: 02/04/2025 trata duplicidade no GET
+"""
+
+# Configurar o sistema de logs
+logging.basicConfig(
+    filename='info.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+
+# Criar um logger específico para sucessos (log_success.log)
+success_logger = logging.getLogger('success_logger')
+success_logger.setLevel(logging.INFO)
+success_handler = logging.FileHandler('log_success.log')
+success_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S'))
+success_logger.addHandler(success_handler)
+
+# Impede que as mensagens do success_logger sejam enviadas para o log geral
+success_logger.propagate = False
+
+# Impede que as mensagens do success_logger sejam enviadas para o log geral
+#success_logger.info("Teste de escrita no log de sucesso.")
+
+# Variável global para armazenar as configurações
+config = None
+# Variável para armazenar o último timestamp de modificação
+ultima_modificacao = None
+
+# Caminho fixo relativo (sempre /db/config.json)
+config_path = Path('db') / 'config.json'
+
+# Função para carregar o arquivo JSON
+def carregar_config():
+    global config, ultima_modificacao
+
+    try:
+        # with open(config_path, 'r') as file:
+        with open(config_path, 'r', encoding='utf-8') as file:
+            config = json.load(file)
+            logging.info("Arquivo config.json carregado com sucesso.")
+           # print("Configurações carregadas com sucesso!")
+           # print o json  print(config)
+            # Atualiza o timestamp da última modificação
+            ultima_modificacao = os.path.getmtime(config_path)
+            return True  # Agora retorna True ao carregar com sucesso
+    except FileNotFoundError:
+        logging.error("Arquivo config.json não encontrado.")
+        print(f"ERRO: Crie o arquivo {config_path} ou ajuste o caminho")
+    except json.JSONDecodeError:
+        logging.error("Erro ao decodificar o arquivo config.json.")
+    except Exception as e:
+        logging.error(f"Erro inesperado ao carregar config.json: {e}")
+
+# Função para verificar se o arquivo foi modificado
+def verificar_modificacao():
+    """Verifica se o config.json foi modificado e recarrega"""
+    global config, ultima_modificacao
+    
+    try:
+        mod_time = os.path.getmtime('db/config.json')
+        if mod_time != ultima_modificacao:
+            logging.info("Recarregando agendamentos...")
+            print("\n🔍 Configuração modificada - Recarregando...")
+            
+            if carregar_config():
+                schedule.clear()
+                agendar_requisicoes()
+                
+                # Registrar no log os NOVOS agendamentos (DEASTIVADO)
+              #  logging.info("📋 Agendamentos Atuais:")
+                for task in config.get('tasks', []):
+                    if task.get('status', False):
+                       
+                       """  logging.info(
+                            f"  - {task['hora']} | "
+                            f"{task.get('description', task.get('url', 'N/A'))} | "
+                            f"URL: {task['url']}"
+                        ) """
+                
+                mostrar_agendamentos()  # Mostra também no console
+            else:
+                print("❌ Erro ao carregar config, saindo do bloco.")
+                
+    except Exception as e:
+        logging.error(f"Erro ao verificar modificações: {str(e)}")
+
+# Função para fazer a requisição GET
+def fazer_get(url, description):
+
+    try:
+          # Inicia a medição do tempo
+        start_time = time.time()
+        resposta = requests.get(url, timeout=10)
+        elapsed = time.time() - start_time
+
+        # Monta a mensagem de log com o tempo de resposta
+        log_msg = (
+            f"✅ {description} | "
+            f"Status: {resposta.status_code} | "
+            f"Tempo: {elapsed:.2f}s"
+        )
+        print(log_msg)
+
+        short_url = url.split('//')[-1][:30] + ('...' if len(url) > 30 else '')
+    
+        # Log e print da tentativa de requisição
+        logging.info(f"Sucesso na chamada de: {short_url}")
+
+        if resposta.status_code == 200:
+            logging.info(f"Sucesso 200 resposta de: {description}")
+            success_logger.info(f"Response from: {short_url}: {resposta.text}")
+
+            print(f"✅ Sucesso 200 {description} [{time.strftime('%H:%M')}]")
+        else:
+            logging.warning(f"⚠️ Falha: {short_url} (status {resposta.status_code})")
+            print(f"⚠️ [{time.strftime('%H:%M')}] {short_url} → Status {resposta.status_code}")
+            
+    except requests.exceptions.RequestException as e:
+        logging.error(f" Erro: {short_url} → {str(e)}")
+        print(f"❌ Erro [{time.strftime('%H:%M')}] {short_url} → {str(e)}")
+
+# Teste com uma URL qualquer
+# fazer_get("https://api-restful-json.vercel.app/status")
+
+# Função para agendar as requisições
+def agendar_requisicoes():
+    """Versão unificada que mantém compatibilidade"""
+    if not config or 'tasks' not in config:
+        logging.error("Erro: Configuração inválida ou sem tarefas!")
+        return
+
+    for task in config['tasks']:
+        # Modo Legado (para JSON sem description)
+        if 'description' not in task:
+            url = task.get('url')
+            hora = task.get('hora')
+            status = task.get('status', True)  # Default True para compatibilidade
+            
+            if not url or not hora:
+                continue
+                
+            if not status:
+                logging.info(f"Tarefa desativada (legado): {url}")
+                print(f"🔴 {hora} | {url} | DESATIVADA")
+                continue
+                
+            schedule.every().day.at(hora).do(
+                url=url,
+                hora=hora
+            )
+            print(f"🟢 {hora} | {url} | Agendada (legado)")
+            continue
+
+        # Modo Novo (com description)
+        required_fields = ['description', 'url', 'status', 'hora']
+        if not all(field in task for field in required_fields):
+            logging.warning(f"Tarefa incompleta: {task.get('url', 'URL não especificada')}")
+            continue
+
+        if not task['status']:
+            logging.info(f" Tarefa desativada: {task['description']}")
+            """ OUTRO MONITOR DE STAT """  
+         #   print(f"🔴 {task['hora']} | {task['description']} | DESATIVADA")
+            continue
+
+        schedule.every().day.at(task['hora']).do(
+            executar_tarefa_se_ativa,
+            task=task
+           
+        )
+
+        """ OUTRO MONITOR DE STAT """
+      #  print(f"🟢 {task['hora']} | {task['description']} | Agendada")
+
+        
+
+# Nova função executar_tarefa_se_ativa():
+    """Executa a tarefa apenas se ainda estiver ativa no momento agendado"""
+def executar_tarefa_se_ativa(task):
+    """Executa a tarefa se ainda estiver ativa"""
+    try:
+        if not task.get('status', False):
+            logging.info(f" Tarefa cancelada: {task['description']} (status alterado)")
+            return        
+       
+        fazer_get(task['url'], task['description'])
+    
+        # nao logar o sucesso no log principal logging.info(log_msg)
+        #success_logger.info(f"Response from {task['url']} - {resposta.text}")
+
+    except Exception as e:
+        error_msg = f"❌ {task['description']} | Erro: {str(e)}"
+        print(error_msg)
+        logging.error(error_msg)
+
+
+""" FN PARA MOSTRAR OS AGENDAMENTO - MELHORADO """
+def mostrar_agendamentos():
+    print("\n📅 Tarefas Agendadas:")
+    print("HORA   | DESCRIÇÃO       | STATUS")
+    print("-" * 40)
+    
+    for task in config.get('tasks', []):
+        status = " ATIVO" if task.get('status', False) else " INATIVO"
+        status2 = " 🟢" if task.get('status', False) else " 🔴"
+       # print(f"{task['hora']} | {task['description'][:15]:<15} | {status}")
+        linha = f"{task['hora']} | {task['description'][:15]:<15} | {status2}"
+        print(linha)
+        logging.info(f"{task['hora']} | {task['description'][:15]:<15} | {status}")  
+
+
+# Inicializar o carregamento do config.json e agendar as requisições
+#carregar_config()
+#agendar_requisicoes()
+
+# Loop principal para verificar modificações e rodar o agendador
+if __name__ == "__main__":
+    print("Script iniciado...")
+    intervalo_verificacao = 5  # Verificar a cada 5 segundos
+    
+    # Carrega a configuração inicial
+    if not carregar_config():
+       print("❌ Falha ao carregar config.json!")
+       exit()
+
+    mostrar_agendamentos()  # Exibe o resumo
+    agendar_requisicoes()   # Inicia o agendador
+
+    try:
+        last_check = time.time()
+        while True:
+            # Verifica modificações no intervalo configurado
+            if time.time() - last_check >= intervalo_verificacao:
+                verificar_modificacao()
+                last_check = time.time()
+            
+            schedule.run_pending()  # Executa as tarefas agendadas
+            time.sleep(1)  # Espera 1 segundo
+
+    except KeyboardInterrupt:
+        logging.info("Script interrompido pelo usuário.")
+        print("\n🛑 Script finalizado pelo usuário")
