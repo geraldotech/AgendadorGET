@@ -1,5 +1,5 @@
 <?php
-$logFile = '../info.log';
+$logFile = './../install_windows/info.log';
 
 if (file_exists($logFile)) {
     $handle = fopen($logFile, 'r');
